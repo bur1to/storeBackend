@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 
 const {
   userRouter,
-  goodsRouter
+  goodsRouter,
+  loginRouter
 } = require('./routers/index');
 
 mongoose.set('strictQuery', true);
@@ -21,6 +22,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/storeDB', { useNewUrlParser: true, u
 
 app.use('/users', userRouter);
 app.use('/goods', goodsRouter);
+app.use('/login', loginRouter);
 
 app.listen(3001, () => {
   console.log('Server is running...');
